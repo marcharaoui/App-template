@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "VirtualMe",
-    "slug": "VirtualMe",
+    "name": "Template",
+    "slug": "Template",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

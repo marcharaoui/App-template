@@ -16,12 +16,7 @@ export default function App() {
   return (
     //Log In Page
     <View style={styles.container}>
-
-      <Image
-       source={require('./icons/logo1_VirtualMe.png')}
-        style={{ width: 200, height: 50 }}
-        PlaceholderContent={<ActivityIndicator />}
-      />
+      <span>[logo]</span>
 
       <Input
        placeholder='Phone number, username, email address'
