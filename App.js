@@ -1,16 +1,10 @@
 /* =========================================================================
-Expo App: VirtualMe
-Description: Used to help study a user's personality
-Creators: David, Marc, Paul
-Starting date: 06/07/2020 
-Note to self: use shift+alt+A => code into line fast
+Expo App: Basic Template
+Year of creation: 2020 
 ========================================================================= */
 
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Input } from 'react-native';
-
-import { ActivityIndicator } from 'react-native'; // used for loading images
+import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
 //react navigation imports
 import { NavigationContainer } from '@react-navigation/native';
@@ -26,13 +20,12 @@ const Stack = createStackNavigator();
 const Tabs = createBottomTabNavigator(); 
 const SettingsStack = createStackNavigator();
 
-
 //functions: The 4 main pages are created here
-const QuizzesScreen = (props) => {
+const HomeScreen = (props) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Quizz 1</Text>
-      <Text>Quizz 2</Text>
+      <Text>Topic 1</Text>
+      <Text>Topic 2</Text>
     </View>
   );
 }
@@ -48,7 +41,7 @@ const SearchScreen = props => {
 const ProfileScreen = ({ navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>This page is all about YOU </Text>
+      <Text>This page is all about the user </Text>
       <Button title="Go to Settings" onPress={() => navigation.navigate("Settings")} />
     </View>
   );
@@ -110,7 +103,7 @@ const HomeTabNavigator = () =>(
   }
 })}>
 
-  <Tabs.Screen name = "Home" component={QuizzesScreen}/>
+  <Tabs.Screen name = "Home" component={HomeScreen}/>
   <Tabs.Screen name = "Search" component={SearchScreen}/>
   <Tabs.Screen name = "Profile" component={SettingsStackNavigator}/>
   <Tabs.Screen name = "Shop" component={ShopScreen}/>
@@ -121,15 +114,15 @@ const HomeTabNavigator = () =>(
 
 //The function below is used to change de header of each page
 function getHeaderTitle(route) {
-  const routeName = route.state ? route.state.routes[route.state.index].name :'Quizzes' //change Quizzes to the first page name
+  const routeName = route.state ? route.state.routes[route.state.index].name :'Home' //change Home to the first page name
 
   switch(routeName){
     case 'Home':
       return (
-        <span>[logo]</span>
+        <span>[logo]</span> // TODO: Replace this with the following commented line 
         // <View>
         //    <Image
-        //     source= {require('./images/logo1_VirtualMe.png')}
+        //     source= {require([path_logo_image])} // TODO: change path with str path of logo image
         //     style={{ width: 100, height: 25}}
         //     PlaceholderContent={<ActivityIndicator />} //to keep or not to keep?
         //   />
@@ -172,7 +165,7 @@ export default function App() {
           headerShown:shouldHeaderBeShown(route) 
 
         })}
-        name="Quizzes" 
+        name="Home" 
         component={HomeTabNavigator} 
         />
         
